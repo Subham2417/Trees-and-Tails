@@ -1,0 +1,5 @@
+window.addEventListener("load",()=>setTimeout(()=>document.querySelector(".preloader").classList.add("done"),500));
+const header=document.querySelector(".site-header");window.addEventListener("scroll",()=>header.classList.toggle("scrolled",scrollY>30));
+const toggle=document.querySelector(".menu-toggle"),nav=document.querySelector(".site-header nav");toggle?.addEventListener("click",()=>nav.classList.toggle("open"));nav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+const revealEls=document.querySelectorAll(".story-copy,.service-card,.resort-copy,.review-track blockquote,.gallery-grid img,.contact-inner");const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform="translateY(0)";io.unobserve(e.target)}}),{threshold:.12});revealEls.forEach(e=>{e.style.opacity=0;e.style.transform="translateY(25px)";e.style.transition="opacity .8s ease,transform .8s ease";io.observe(e)});
+document.getElementById("year").textContent=new Date().getFullYear();
